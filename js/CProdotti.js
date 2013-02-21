@@ -203,7 +203,7 @@ $(document).ready(function(){
             $('.overlay').fadeIn('fast');
             $('#popupP').show('slow');
         });
-        
+        e.preventDefault();
     })
     
     $(document).on('click','#closepp',function(e){
@@ -256,5 +256,9 @@ $(document).ready(function(){
             scrollTop: $('#'+$(this).attr('name')).offset().top
         },'slow');
     })
+    
+    $("#linkbot")
+
+  
 
 });

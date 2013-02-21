@@ -26,20 +26,21 @@ class CProdotto {
         return $p;    
     }
     
-    public function addProd($nome,$descrizione,$colore,$immagine,$vetrina){
+    public function addProd($data){
+        $temp = json_decode($data);
         $p = new EProdotto();
-        $p->setNome($nome);
-        $p->setDescrizione($descrizione);
-        $p->setImmagine($immagine);
-        $p->setColore($colore);
-        $p->setVetrina($vetrina);
+        $p->setNome($temp->nome);
+        $p->setDescrizione($temp->descrizione);
+        $p->setImmagine($temp->immagine);
+        $p->setColore($temp->colore);
+        $p->setVetrina($temp->vetrina);
         $f = FProdotto::getInstance();
         $f->store($p);
     }
     
     public function getProdottoByName($name){
         $f = FProdotto::getInstance();
-        $p = $f->getProdottoByName($name);
+        $p = $f->getProdottoByName(utf8_decode(htmlspecialchars(mysql_real_escape_string($name))));
         return $p;   
     }
     

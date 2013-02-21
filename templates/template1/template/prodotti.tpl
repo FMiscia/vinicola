@@ -50,9 +50,9 @@
         {foreach from=$prodotti item=prodotto}
             {if $prodotto->getVetrina()}
                 <div class="prodotto">
-                    <div class="elencoshort">       
+                    <div class="elencoshort"><a id="linkbot" href="#">       
                         <img class="vini" src="images/{$prodotto->getImmagine()}.png" alt="{$prodotto->getNome()}" />
-                        <h4 align="center">{$prodotto->getNome()}</h4>
+                        <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto</div>
                     <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />
@@ -70,9 +70,9 @@
         {foreach from=$prodotti item=prodotto}
             {if $prodotto->getTipo() == "vino"}
                 <div class="prodotto">
-                    <div class="elencoshort">       
+                    <div class="elencoshort"><a id="linkbot" href="#">         
                         <img class="vini" src="images/{$prodotto->getImmagine()}.png" alt="{$prodotto->getNome()}" />
-                        <h4 align="center">{$prodotto->getNome()}</h4>
+                        <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto</div>
                     <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />
@@ -84,9 +84,9 @@
         {foreach from=$prodotti item=prodotto}
             {if $prodotto->getTipo() == "olio"}
                 <div class="prodotto">
-                    <div class="elencoshort">       
+                    <div class="elencoshort"><a id="linkbot" href="#">    
                         <img class="vini" src="images/{$prodotto->getImmagine()}.png" alt="{$prodotto->getNome()}" />
-                        <h4 align="center">{$prodotto->getNome()}</h4>
+                        <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto</div>
                     <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />

@@ -31,8 +31,23 @@ class VProdotti extends View {
         $controller = CProdotto::getInstance();
         $prod = $controller->getProdottoByName($nome);
         $out = array(
-                    'prodotto' => $prod
-                );
+            'prodotto' => $prod
+        );
+        echo json_encode($out);
+        exit;
+    }
+
+    public function addProdotto() {
+        if (!isset($_GET['prodotto']))
+            return null;
+        $controller = CProdotto::getInstance();
+        $out = false;
+        if ($controller->addProdotto($_GET['prodotto'])) {
+
+            $out = array(
+                'result' => true
+            );
+        }
         echo json_encode($out);
         exit;
     }
@@ -44,12 +59,11 @@ class VProdotti extends View {
 
             VProdotti::$instance = new VProdotti($_GET['action']);
         }
-        
+
         return VProdotti::$instance;
     }
 
 }
 
 VProdotti::getInstance();
-
 ?>
