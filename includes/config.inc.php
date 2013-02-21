@@ -4,7 +4,7 @@ global $config;
 $config["mysql"] = array(
     "host" => isset($_SERVER['DB1_HOST']) ?$_SERVER['DB1_HOST']:"localhost",
     "username" => isset($_SERVER["DB1_USER"])?$_SERVER["DB1_USER"]:"root",
-    "password" =>isset($_SERVER["DB1_PASS"])?$_SERVER["DB1_PASS"]:"r00tdir31",
+    "password" =>isset($_SERVER["DB1_PASS"])?$_SERVER["DB1_PASS"]:"*****",
     "dbname" => "dinzeo");
 $config["smarty"] = array(
     "template_dir" => "../templates/template1/template/",
