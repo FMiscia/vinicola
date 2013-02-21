@@ -1,7 +1,7 @@
 web1:
   name: aziendaagricoladinzeo
   php_extensions: [mcrypt, mysqli, mysql, mbstring] 
-
+  shared_writable_dirs: [templates/template1/templates_c/]
 db1:
   name: dinzeo
   type: mysql
