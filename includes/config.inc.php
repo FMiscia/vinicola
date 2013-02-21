@@ -2,9 +2,9 @@
 
 global $config;
 $config["mysql"] = array(
-    "host" => "localhost",
-    "username" => "***",
-    "password" => "*****",
+    "host" => isset($_SERVER['DB1_HOST']) ?$_SERVER['DB1_HOST']:"localhost",
+    "username" => isset($_SERVER["DB1_USER"])?$_SERVER["DB1_USER"]:"*****",
+    "password" =>isset($_SERVER["DB1_PASS"])?$_SERVER["DB1_PASS"]:"*******",
     "dbname" => "dinzeo");
 $config["smarty"] = array(
     "template_dir" => "../templates/template1/template/",
@@ -13,3 +13,4 @@ $config["smarty"] = array(
     "cache_dir" => "../templates/template1/cache/",
 );
 ?>
+
