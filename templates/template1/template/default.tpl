@@ -23,9 +23,9 @@
     <body>
         <div id="outer">
 
-            <div id="banner">
+            <div id="banner"><a href="VHome.php">
                 <div id="titolo"><h2>Azienda Agricola</h2><h1>D'Inzeo</h1></div>
-                <img id="imglogo" draggable="false" src="images/banner1.jpg" alt="" />
+                <img id="imglogo" draggable="false" src="images/banner1.jpg" alt="" /></a>
             </div>
             <div id="main">
                 <div id="sidebar">
