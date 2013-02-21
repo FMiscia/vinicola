@@ -1,6 +1,6 @@
 web1:
-	name: aziendaagricoladinzeo
-	php_extensions: [mcrypt, mysqli, mysql, mbstring] 
+  name: aziendaagricoladinzeo
+  php_extensions: [mcrypt, mysqli, mysql, mbstring] 
 
 db1:
   name: dinzeo
