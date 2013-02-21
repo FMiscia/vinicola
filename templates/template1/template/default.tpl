@@ -24,7 +24,7 @@
         <div id="outer">
 
             <div id="banner">
-                <div id="titolo"><h1>Vinicola D'Inzeo</h1></div>
+                <div id="titolo"><h2>Azienda Agricola</h2><h1>D'Inzeo</h1></div>
                 <img id="imglogo" draggable="false" src="images/banner1.jpg" alt="" />
             </div>
             <div id="main">

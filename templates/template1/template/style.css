@@ -345,7 +345,7 @@ ul h4 {
 }
 
 #chisiamocontent{
-    
+
 }
 
 #elCounter{
@@ -743,8 +743,17 @@ ul h4 {
     position: absolute;
     color: #141414;
     font-family: Tangerine, cursive;
-    font-size: 60px;
-    top:95px;
+    font-size: 70px;
+    top:130px;
+    left:90px;
+}
+
+#titolo h2{
+    position: absolute;
+    color: #141414;
+    font-family: Tangerine, cursive;
+    font-size: 50px;
+    top:60px;
     left:30px;
 }
 
