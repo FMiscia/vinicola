@@ -46,7 +46,7 @@
     <div id="boxP">
         <h2 align="center">I nostri Prodotti</h2>
         <div class="presentazioneP">Qui potrai scoprire tutti i nostri prodotti. Fai click all'interno della cornice per averne una descrizione tecnica.</div>
-        <a id="invetrina"><h2>In Vetrina</h2></a>
+        <a id="invetrina"><div  id="title" align="center"><h2>In Vetrina</h2></div></a>
         {foreach from=$prodotti item=prodotto}
             {if $prodotto->getVetrina()}
                 <div class="prodotto">
@@ -65,7 +65,7 @@
                 <h4>Aggiungi</h4>
             </div>
         {/if}
-        <a id="vino"><h2>Vino</h2></a>
+        <a id="vino"><div id="title" align="center"><h2>Vino</h2></div></a>
         <div class="up"><h4><a href="#">Torna su</a></h4></div>
         {foreach from=$prodotti item=prodotto}
             {if $prodotto->getTipo() == "vino"}
@@ -79,7 +79,7 @@
                 </div>
             {/if}
         {/foreach}
-        <a id="olio"><h2>Olio</h2></a>
+        <a id="olio"><div id="title" align="center"><h2>Olio</h2></div></a>
         <div class="up"><h4><a href="#">Torna su</a></h4></div>
         {foreach from=$prodotti item=prodotto}
             {if $prodotto->getTipo() == "olio"}

@@ -724,6 +724,16 @@ ul h4 {
     background-position: 0px 0px;
 }
 
+#title{
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+#title h2{
+    margin-bottom: 10px;
+}
+
+
 #titolo{
     z-index: 1;
 
@@ -746,6 +756,10 @@ ul h4 {
 .up a{
     text-decoration: none;
     color: #141414;
+}
+
+.up h4{
+    margin-bottom: 5px;
 }
 
 .blogpost h2 {
