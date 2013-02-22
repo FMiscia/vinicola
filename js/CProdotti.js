@@ -188,7 +188,7 @@ $(document).ready(function(){
             'action': "getProdotto",
             'nome': nome
         }).success(function(data){
-           /* $.get("VProdotti.php",
+            /* $.get("VProdotti.php",
             {
                 'action': "isAdmin",
             }).success(function(data){
@@ -252,12 +252,14 @@ $(document).ready(function(){
         return false;
     });
     
-    $(".up").click(function(){
+    $(".up").click(function(e){
+        e.preventDefault();
         $('html,body').animate({
             scrollTop: $('#outer').offset().top
         },'slow');
     })
-    $(".to").click(function(){
+    $(".to").click(function(e){
+        e.preventDefault();
         $('html,body').animate({
             scrollTop: $('#'+$(this).attr('name')).offset().top
         },'slow');
