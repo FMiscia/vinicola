@@ -55,7 +55,7 @@
                         <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto</div>
-                    <a href="#"><img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" /></a>
+                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />
                 </div>
             {/if}
         {/foreach}
@@ -75,7 +75,7 @@
                         <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto</div>
-                    <a href="#"><img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" /></a>
+                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />
                 </div>
             {/if}
         {/foreach}
@@ -89,7 +89,7 @@
                         <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto</div>
-                    <a href="#"><img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" /></a>
+                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />
                 </div>
             {/if}
         {/foreach}

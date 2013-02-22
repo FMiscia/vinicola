@@ -188,7 +188,7 @@ $(document).ready(function(){
             'action': "getProdotto",
             'nome': nome
         }).success(function(data){
-            /* $.get("VProdotti.php",
+           /* $.get("VProdotti.php",
             {
                 'action': "isAdmin",
             }).success(function(data){
@@ -231,9 +231,9 @@ $(document).ready(function(){
         dropEffect();
         showMessage("Aggiunto!","#addedfromscheda")
         ++TotalCounter;
-        var t = $(this).parent().find('h4').text();
+        var t = $(this).prev().prev().find('h4').text();
         if(t == ''){
-            t = $(this).prev().prev().prev().find('h3').text();
+            t = $(this).prev().prev().find('h3').text();
         }
         if (!quantity.hasOwnProperty(t.toString())){
             quantity[(t.toString())] = 1;
@@ -249,7 +249,7 @@ $(document).ready(function(){
         }
         showMessage("Elemento Aggiunto","#messagebox");
         (TotalCounter==1)?$("#elCounter").text("1 prodotto inserito"):$("#elCounter").text(TotalCounter+" prodotti inseriti");
-        e.preventDefault()
+        return false;
     });
     
     $(".up").click(function(){
