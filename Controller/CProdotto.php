@@ -17,7 +17,7 @@ class CProdotto {
 
     private static $instance = null;
     
-    function __construct() {
+    protected function __construct() {
     }
 
     public function getProd() {
@@ -34,6 +34,7 @@ class CProdotto {
         $p->setImmagine($temp->immagine);
         $p->setColore($temp->colore);
         $p->setVetrina($temp->vetrina);
+        $p->setTipo($temp->tipo);
         $f = FProdotto::getInstance();
         $f->store($p);
     }

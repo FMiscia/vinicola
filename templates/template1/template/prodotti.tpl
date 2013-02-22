@@ -55,7 +55,7 @@
                         <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto</div>
-                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />
+                    <a href="#"><img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" /></a>
                 </div>
             {/if}
         {/foreach}
@@ -75,7 +75,7 @@
                         <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto</div>
-                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />
+                    <a href="#"><img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" /></a>
                 </div>
             {/if}
         {/foreach}
@@ -89,7 +89,7 @@
                         <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto</div>
-                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />
+                    <a href="#"><img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" /></a>
                 </div>
             {/if}
         {/foreach}
@@ -99,90 +99,6 @@
                 <h4>Aggiungi</h4>
             </div>
         {/if}
-        <!--<div class="elencoshort">
-            <img  class="vini" src="images/bottle1.png" alt="Nero di Troia - Rosato" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini" src="images/bottle3.png" alt="Nero di Troia - Bianco" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini" src="images/bottle4.png" alt="Nero di Troia - 5L" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini" src="images/bottle5.png" alt="Nero di Troia - 3L" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini" src="images/bottle6.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>                        
-        <div class="elencoshort">
-            <img class="vini" src="images/bottle3.png" alt="Nero di Troia - Rosso"/> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini" src="images/bottle4.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini"  src="images/bottle5.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini"  src="images/bottle6.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>                        
-        <div class="elencoshort">
-            <img class="vini" src="images/bottle4.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini"  src="images/bottle5.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini"  src="images/bottle6.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>                        
-        <div class="elencoshort">
-            <img class="vini" src="images/bottle4.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini"  src="images/bottle5.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini"  src="images/bottle6.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>                        
-        <div class="elencoshort">
-            <img class="vini" src="images/bottle4.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini"  src="images/bottle5.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini"  src="images/bottle6.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>                        
-        <div class="elencoshort">
-            <img class="vini" src="images/bottle4.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini"  src="images/bottle5.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>
-        <div class="elencoshort">
-            <img class="vini"  src="images/bottle6.png" alt="Nero di Troia - Rosso" /> 
-            <h4>Nero Di Troia</h4>
-        </div>-->
     </div>
 </div>
 <div id="ancora"></div>

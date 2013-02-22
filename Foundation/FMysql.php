@@ -35,7 +35,7 @@ class FMysql implements FDb {
      *
      * 
      */
-    function __construct() {
+    protected function __construct() {
         global $config;
         if (!$this->up) {
             try {

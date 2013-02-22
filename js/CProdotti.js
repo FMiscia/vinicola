@@ -188,6 +188,12 @@ $(document).ready(function(){
             'action': "getProdotto",
             'nome': nome
         }).success(function(data){
+           /* $.get("VProdotti.php",
+            {
+                'action': "isAdmin",
+            }).success(function(data){
+ 
+            })*/
             var response = jQuery.parseJSON(data);
             var left = $("#sidebar").offset().right;
             var top = $("#banner").offset().top + ($("#banner").height()/2);
@@ -196,7 +202,7 @@ $(document).ready(function(){
             $('<div id="closepp"><a href="#">Chiudi</a></div>').appendTo("#popupP")
             $('<div id="leftblock"><div align="center"><h3>'+nome+'</h3></div>')
             .append('<div>'+response.prodotto[0].descrizione+'</div>')
-            .append('<img id="bottadd" class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />')
+            .append('<a href="#"><img id="bottadd" class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" /></a>')
             .append('<div id="addedfromscheda"></div></div>').appendTo("#popupP");
             $('<div id="rightblock"><img src="'+img.attr("src")+'" width=95 height=380 /></div>').appendTo("#popupP");
 
@@ -222,6 +228,7 @@ $(document).ready(function(){
     
     
     $(document).on('click','.addtocart',function(e){
+        e.preventDefault()
         dropEffect();
         showMessage("Aggiunto!","#addedfromscheda")
         ++TotalCounter;
@@ -256,8 +263,7 @@ $(document).ready(function(){
             scrollTop: $('#'+$(this).attr('name')).offset().top
         },'slow');
     })
-    
-    $("#linkbot")
+   
 
   
 

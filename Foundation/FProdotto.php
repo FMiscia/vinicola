@@ -13,7 +13,7 @@ class FProdotto extends FMysql {
     /**
      * @access public
      */
-    public function __construct() {
+    protected function __construct() {
         parent::__construct();
         $this->_table = 'prodotti';
         $this->_key = 'id';

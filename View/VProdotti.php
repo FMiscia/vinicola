@@ -2,6 +2,7 @@
 
 require_once 'View.php';
 require_once '../Controller/CProdotto.php';
+require_once '../Controller/CAdministration.php';
 require_once '../Entity/EProdotto.php';
 
 /**
@@ -15,6 +16,8 @@ class VProdotti extends View {
     private static $instance = null;
 
     public function __construct($action) {
+        //$session = new USession();
+        //$session->imposta_valore("utente", "ospite");
         if ($action != null)
             $this->$action();
         $controller = CProdotto::getInstance();
@@ -48,6 +51,16 @@ class VProdotti extends View {
                 'result' => true
             );
         }
+        echo json_encode($out);
+        exit;
+    }
+
+    public function isAdmin() {
+        if (!isset($_GET['user']))
+            return null;
+        $out = array(
+            'result' => CAdministration::getInstance()->isAdmin($_GET['user'])
+        );
         echo json_encode($out);
         exit;
     }
