@@ -188,7 +188,7 @@ $(document).ready(function(){
             'action': "getProdotto",
             'nome': nome
         }).success(function(data){
-           /* $.get("VProdotti.php",
+            /* $.get("VProdotti.php",
             {
                 'action': "isAdmin",
             }).success(function(data){
@@ -228,7 +228,6 @@ $(document).ready(function(){
     
     
     $(document).on('click','.addtocart',function(e){
-        e.preventDefault()
         dropEffect();
         showMessage("Aggiunto!","#addedfromscheda")
         ++TotalCounter;
@@ -250,7 +249,7 @@ $(document).ready(function(){
         }
         showMessage("Elemento Aggiunto","#messagebox");
         (TotalCounter==1)?$("#elCounter").text("1 prodotto inserito"):$("#elCounter").text(TotalCounter+" prodotti inseriti");
-        return false;
+        //e.preventDefault()
     });
     
     $(".up").click(function(){
