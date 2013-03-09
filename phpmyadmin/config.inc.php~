@@ -18,7 +18,7 @@ $i++;
 /* Authentication type and info */
 $cfg['Servers'][$i]['auth_type'] = 'config';
 $cfg['Servers'][$i]['user'] = 'root';
-$cfg['Servers'][$i]['password'] = 'r00tdir31';
+$cfg['Servers'][$i]['password'] = '';
 $cfg['Servers'][$i]['extension'] = 'mysql';
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
