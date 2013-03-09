@@ -1,16 +1,14 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
+require_once 'FMysql.php';
 /**
  * Description of FUtente
  *
  * @author francesco
  */
 class FUtente extends FMysql {
+    
+    private static $instance = null;
     
     protected function __construct() {
         parent::__construct();

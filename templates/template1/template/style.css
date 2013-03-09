@@ -137,6 +137,11 @@ ul h4 {
     color: #5C5C5C;
 }
 
+#addProduct{
+    display: block;
+    margin-top:30px;
+}
+
 #boxP {
     width: 490px;
     float: left;
@@ -295,6 +300,7 @@ ul h4 {
     text-align: right;
 }
 
+
 #titscheda{
     display: inline;
 }
@@ -378,14 +384,20 @@ ul h4 {
 
 .prodotto{
     width: 80px;
-    height: 220px;
+    height: 200px;
     display: inline-table;  
 }
 
+#addprodotto{
+    cursor: pointer;
+}
+
+
 .elencoshort{
-    width: 80px;
-    height: 150px;
-    display: inline-table;
+    min-width: 80px;
+    min-height: 200px;
+    max-height: 200px;
+    /*display: inline-block;*/
     padding: 5px 5px 5px 5px;
     margin-left: 1em;
     border: solid transparent;
@@ -446,6 +458,10 @@ ul h4 {
     padding: 35px;
     height: 140px;
     width: 910px;
+}
+
+#inputupload{
+    margin-top: 10px;
 }
 
 #leftblock{
@@ -627,6 +643,13 @@ ul h4 {
 }
 
 
+
+#saveProduct{
+    display: block;
+    margin-top: 30px;
+}
+
+
 #search input.button {
     margin-left: 1em;
     border: 0;
@@ -758,6 +781,19 @@ ul h4 {
     left:30px;
 }
 
+#titleinput{
+    font: 14px normal normal uppercase helvetica, arial, serif;
+    width:200px;
+    color: #7c7873;
+    border:1px solid rgba(5, 5, 5, 0.1);;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+    border-radius: 5px;
+    -moz-box-shadow: inset 0px 0px 1px #726959;
+    -webkit-box-shadow:  inset 0px 0px 1px #b3a895; 
+    box-shadow:  inset 0px 0px 1px #b3a895;
+}
+
 .up {
     text-align: right;
     margin-top: -40px;
@@ -781,7 +817,7 @@ ul h4 {
 }
 
 form { 
-    margin: 50px 0 0 0; 
+    margin: 0px 0 0 0; 
 }
 
 label{ 
@@ -796,6 +832,14 @@ label{
 
 }
 
+#formlabel{
+
+    margin: 8px 0px 0 0; 
+    font-size: 30px; 
+    text-shadow: 0px 1px 0px #fff;
+
+}
+
 input[type=text]{ 
     float: left; width: 40px; 
     padding: 3px 0 0 0; 
@@ -803,7 +847,7 @@ input[type=text]{
     margin-left: 5px;
 }
 
-form div  { overflow: hidden; margin: 0 0 5px 0; }
+form div  { margin: 0 0 5px 0; }
 
 .button{ 
     margin: 0 0 0 5px; 
@@ -831,4 +875,105 @@ form div  { overflow: hidden; margin: 0 0 5px 0; }
 .res{
     display: inline-table;
     width: 290px;
+}
+
+/*******/
+#form_wrap.hide:after, #form_wrap.hide:before {display:none; }
+
+
+form {background: none; 
+      position:relative;
+      height:100px;width:400px;margin:0px auto;padding:25px; 
+      /*border-radius: 0px; 
+      -moz-border-radius: 3px; -webkit-border-radius: 3px;
+      box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 27px #fff;
+      -moz-box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 14px #fff;
+      -webkit-box-shadow: 0px 0px 3px #9d9d9d, inset 0px 0px 27px #fff;*/
+}
+
+#form_wrap {
+
+}
+
+#form_wrap form {
+    position: relative;
+    height:186px;
+    top: 0;
+    margin-top: 0px;
+    margin-left:70px;
+    padding-bottom: 20px;
+}
+
+#form_wrap h2{
+    margin-bottom: 10px;
+}
+
+#form_wrap input[type=text],[type=password],textarea {
+    font: 14px normal normal uppercase helvetica, arial, serif;
+    color: #7c7873;
+    background:none;
+    text-align: center;
+    width: 380px; 
+    height: 36px; 
+    padding: 0px 0px; 
+    margin: 0 0 0px 0;
+    border:1px solid rgba(5, 5, 5, 0.1);;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+    border-radius: 5px;
+    -moz-box-shadow: inset 0px 0px 1px #726959;
+    -webkit-box-shadow:  inset 0px 0px 1px #b3a895; 
+    box-shadow:  inset 0px 0px 1px #b3a895;
+}
+
+#form_wrap input[type=submit]{
+    color: #7c7873;
+    background:none;
+    text-align: center;
+    width: 80px; 
+    height: 36px; 
+    padding: 0px 0px; 
+    margin: 15px 0px 0px 143px;
+    border:1px solid rgba(5, 5, 5, 0.1);;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+    border-radius: 5px;
+    -moz-box-shadow: inset 0px 0px 1px #726959;
+    -webkit-box-shadow:  inset 0px 0px 1px #b3a895; 
+    box-shadow:  inset 0px 0px 1px #b3a895;
+}
+
+textarea { 
+    height: 100px; 
+    max-height: 200px;
+    width: 400px; 
+    max-width: 425px;
+    margin-top:20px; 
+    padding-top:14px;
+}
+
+textarea:focus, input[type=password]:focus, input[type=text]:focus  {background:rgba(255,255,255,.35);}
+
+#newHotnessForm{
+    float: left;
+}
+
+#lfile{
+    color: #7c7873;
+    font-family: helvetica, serif;
+    display: inline;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-top: 7px;
+}
+
+#ifile{
+    display: inline;
+    margin-left: 20px;
+    
+}
+
+#bfile{
+    display: block;
+
 }

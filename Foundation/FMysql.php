@@ -18,7 +18,6 @@ class FMysql implements FDb {
     private $up=false; //boolean
     private $_connection;
     private $_query;
-    protected static $instance=null;
     protected $_table;
     protected $_key;
     protected $_class;

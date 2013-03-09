@@ -57,7 +57,12 @@
                 {include $content}
             </div>
             <div id="copyright">
-                @2013 by Micio Team
+                @2013 by Micio Team ---- 
+                {if $admin}
+                <a style = "text-decoration: none" align=right href="VLogin.php?action=logout">Logout</a>
+                {else}
+                    <a style = "text-decoration: none" align=right href="VLogin.php">Azienda Agricola D'Inzeo</a>
+                    {/if}
             </div>
         </div>
     </body>

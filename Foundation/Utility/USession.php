@@ -10,7 +10,7 @@
  */
 class USession {
     public function __construct() {
-        session_start();
+        @session_start();
        
     }
     function imposta_valore($chiave,$valore) {

@@ -12,7 +12,7 @@ abstract class View extends Smarty {
 
     public $content = null;
     public $scripts = null;
-    
+    protected $admin = false;
     /**
      * @access public
      * @global array $config
@@ -40,6 +40,7 @@ abstract class View extends Smarty {
        
         $this->assign('scripts', $this->scripts);
         $this->assign('content', $this->content);
+        $this->assign("admin",$this->admin);
         $this->display('default.tpl');
     }
 

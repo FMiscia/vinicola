@@ -4,6 +4,7 @@ require_once 'View.php';
 require_once '../Controller/CProdotto.php';
 require_once '../Controller/CAdministration.php';
 require_once '../Entity/EProdotto.php';
+require_once '../Foundation/Utility/USession.php';
 
 /**
  * View che gestisce la home page. Vedi View.php per analizzare
@@ -13,70 +14,74 @@ class VProdotti extends View {
 
     public $content = 'prodotti.tpl';
     public $scripts = array('CProdotti.js', 'h5utils.js');
-    private static $instance = null;
 
     public function __construct($action) {
-        //$session = new USession();
-        //$session->imposta_valore("utente", "ospite");
-        if ($action != null)
+        $session = new USession();
+        if ($session->leggi_valore("utente") == "admin")
+            $this->admin = true;
+        if ($action != null) {
+            preg_filter('([[:punct:]])', '', $action);
             $this->$action();
+        }
         $controller = CProdotto::getInstance();
         $prodotti = $controller->getProd();
         $this->assignByRef("prodotti", $prodotti);
-        $this->assign("admin", false);
         parent::__construct();
     }
 
     public function getProdotto() {
-        if (!isset($_GET['nome']))
-            return null;
-        $nome = $_GET['nome'];
-        $controller = CProdotto::getInstance();
-        $prod = $controller->getProdottoByName($nome);
         $out = array(
-            'prodotto' => $prod
-        );
-        echo json_encode($out);
-        exit;
-    }
-
-    public function addProdotto() {
-        if (!isset($_GET['prodotto']))
-            return null;
-        $controller = CProdotto::getInstance();
-        $out = false;
-        if ($controller->addProdotto($_GET['prodotto'])) {
-
+                'prodotto' => null,
+                'admin' => false
+            );
+        if (isset($_GET['nome'])) {
+            $nome = $_GET['nome'];
+            $controller = CProdotto::getInstance();
+            $prod = $controller->getProdottoByName($nome);
             $out = array(
-                'result' => true
+                'prodotto' => $prod,
+                'admin' => $this->admin
             );
         }
         echo json_encode($out);
         exit;
     }
 
+    public function addProdotto() {
+        $out = array('result' => false);
+        if ($this->admin && isset($_GET['prodotto'])) {
+            $controller = CProdotto::getInstance();
+            if ($controller->addProdotto($_GET['prodotto']))
+                $out = array('result' => true);
+        }
+        echo json_encode($out);
+        exit;
+    }
+
     public function isAdmin() {
-        if (!isset($_GET['user']))
-            return null;
         $out = array(
-            'result' => CAdministration::getInstance()->isAdmin($_GET['user'])
+            'result' => $this->admin
         );
         echo json_encode($out);
         exit;
     }
 
-    public static function getInstance() {
-        if (VProdotti::$instance == null) {
-            if (!isset($_GET['action']))
-                $_GET['action'] = null;
+    public function updateProdotto() {
+        $out = array("result" => false);
+        if (($this->admin && isset($_POST['id']) && isset($_POST['titolo']) && isset($_POST['descrizione'])) &&
+                (CAdministration::getInstance()->updateProdotto($_POST['id'],$_POST['titolo'], $_POST['descrizione'])))
+            $out = array("result" => true);
 
-            VProdotti::$instance = new VProdotti($_GET['action']);
-        }
-
-        return VProdotti::$instance;
+        echo json_encode($out);
+        exit;
     }
 
 }
 
-VProdotti::getInstance();
+$action = null;
+if (isset($_GET['action']))
+    $action = $_GET['action']; 
+if (isset($_POST['action']))
+    $action = $_POST['action']; 
+$vprodotti = new VProdotti($action);
 ?>

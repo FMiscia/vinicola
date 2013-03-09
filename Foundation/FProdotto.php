@@ -1,14 +1,14 @@
 <?php
 
-/**
- * @package Galufra
- */
 require_once('FMysql.php');
 
 /**
- * Foundation per la gestione di un utente sul db
+ * @author francesco
+ * Foundation per la gestione dei prodotti
  */
 class FProdotto extends FMysql {
+
+    private static $instance = null;
 
     /**
      * @access public
@@ -25,11 +25,10 @@ class FProdotto extends FMysql {
     }
 
     public function getProdottoByName($nome) {
-        return  $this->search(array(
+        return $this->search(array(
                     array("nome", " = ", $nome)
                         )
         );
-       
     }
 
     public static function getInstance() {

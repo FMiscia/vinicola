@@ -47,26 +47,26 @@ $(document).ready(function(){
             $('.top').css("right",right);
         }
         else
-            $('#boxC').removeClass('top');
-    }
+        $('#boxC').removeClass('top');
+        }
     
-    function cancel(e) {
+        function cancel(e) {
         if (e.preventDefault) {
-            e.preventDefault();
+        e.preventDefault();
         }
         return false;
-    }
+        }
     
-    function dropEffect() {
+        function dropEffect() {
         var cart = $("#imgC").addClass('dragOver');
         setTimeout(function () {
             cart.removeClass('dragOver');
-        }, 1000);
+            }, 1000);
        
-    }
+        }
     
     
-    function dd(){
+        function dd(){
 
         var drop = document.querySelector('#imgC');
         var drag = document.querySelectorAll('.vini');
@@ -74,7 +74,7 @@ $(document).ready(function(){
         addEvent(drag, 'dragstart', function (e) {
             e.dataTransfer.effectAllowed = 'move'; // only dropEffect='copy' will be dropable
             e.dataTransfer.setData('Text', $(this).attr("alt")); // required otherwise doesn't work
-        });
+            });
         // Tells the browser that we *can* drop on this target
         addEvent(drop, 'dragover',function(e){
             //$(e.target).css("background-color","white")
@@ -82,7 +82,7 @@ $(document).ready(function(){
             //showMessage("Rilascia");
             e.preventDefault();
             return false;
-        }, false);
+            }, false);
             
         //addEvent(drop, 'dragover',cancel)
             
@@ -92,7 +92,7 @@ $(document).ready(function(){
             //showMessage("Rilascia");
             e.preventDefault();
             return false;
-        }, false);
+            }, false);
 
         //addEvent(drop, 'dragenter',cancel);
         
@@ -100,7 +100,7 @@ $(document).ready(function(){
             e.target.className = "";
             e.preventDefault();
             return false;
-        }, false);
+            }, false);
 
                 
             
@@ -111,18 +111,18 @@ $(document).ready(function(){
             e.dataTransfer.dropEffect = 'move';
             var t = e.dataTransfer.getData('Text');
             if (!quantity.hasOwnProperty(t.toString())){
-                quantity[(t.toString())] = 1;
-                $('<div class="res" align="center">')
-                .append('<label for="name">'+t+'</label>')
-                .append('<input type="text" name = "'+t+'" id="'+t.replace(/ /g,"")+'" value="'+quantity[(t.toString())]+'"/>')
-                .append('<div class="button inc">+</div><div class="button dec">-</div></div>')
-                .appendTo("#resoconto") ;
+            quantity[(t.toString())] = 1;
+            $('<div class="res" align="center">')
+            .append('<label for="name">'+t+'</label>')
+            .append('<input type="text" name = "'+t+'" id="'+t.replace(/ /g,"")+'" value="'+quantity[(t.toString())]+'"/>')
+            .append('<div class="button inc">+</div><div class="button dec">-</div></div>')
+            .appendTo("#resoconto") ;
             }else{
-                var valore = ++quantity[(t.toString())];
-                $("#"+t.replace(/ /g,"")).attr("value",valore);
+            var valore = ++quantity[(t.toString())];
+            $("#"+t.replace(/ /g,"")).attr("value",valore);
                 
-            }
-            showMessage("Elemento Aggiunto","#messagebox");
+        }
+        showMessage("Elemento Aggiunto","#messagebox");
             (TotalCounter==1)?$("#elCounter").text("1 prodotto inserito"):$("#elCounter").text(TotalCounter+" prodotti inseriti");
             return false;
         });
@@ -181,38 +181,47 @@ $(document).ready(function(){
     })
     
     $('.elencoshort').click(function(e){
-        var img = $(this).find("img");
-        var nome = $(this).find('h4').text();
-        $.get("VProdotti.php",
-        {
-            'action': "getProdotto",
-            'nome': nome
-        }).success(function(data){
-            /* $.get("VProdotti.php",
+        if($(this).attr("id")!="addprodotto"){
+            var img = $(this).find("img");
+            var nome = $(this).find('h4').text();     
+            $.get("VProdotti.php",
             {
-                'action': "isAdmin",
+                'action': "getProdotto",
+                'nome': nome
             }).success(function(data){
- 
-            })*/
-            var response = jQuery.parseJSON(data);
-            var left = $("#sidebar").offset().right;
-            var top = $("#banner").offset().top + ($("#banner").height()/2);
-            $("#popupP").css("top",top);
-            $("#popupP").css("left",left);
-            $('<div id="closepp"><a href="#">Chiudi</a></div>').appendTo("#popupP")
-            $('<div id="leftblock"><div align="center"><h3>'+nome+'</h3></div>')
-            .append('<div>'+response.prodotto[0].descrizione+'</div>')
-            .append('<img id="bottadd" class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />')
-            .append('<div id="addedfromscheda"></div></div>').appendTo("#popupP");
-            $('<div id="rightblock"><img src="'+img.attr("src")+'" width=95 height=380 /></div>').appendTo("#popupP");
-
-            $('.overlay').fadeIn('fast');
-            $('#popupP').show('slow');
-        });
+                var response = jQuery.parseJSON(data);
+                var left = $("#sidebar").offset().right;
+                var top = $("#banner").offset().top + ($("#banner").height()/2);
+                $("#popupP").css("top",top);
+                $("#popupP").css("left",left);
+                $('<div id="closepp"><a href="#">Chiudi</a></div>').appendTo("#popupP")
+                if(response.admin){
+                    $('<div id="leftblock"><div align="center"><input id="titleinput" type="text" name="'+response.prodotto[0].id+'" value="'+nome+'"" /></div>')
+                    .append('<div><textarea id="prodDesc"  name="message" value="" id="message" >'+response.prodotto[0].descrizione+'</textarea></div>')
+                    .appendTo("#popupP")
+                    $('<div id="rightblock"><img src="'+img.attr("src")+'" width=95 height=380 /></div>').appendTo("#popupP");
+                    $('<form id="newHotnessForm" action="#" enctype="multipart/form-data">'
+                    +'<label id="lfile">Scegli un\'immagine:</label>'
+                    +'<input id="ifile" type="file" size="20" />'
+                    +'<div align="center"><a href="#" id="saveProduct">Salva</a></div>'
+                    +'<div id="saved" align="center"></div></form>').appendTo("#popupP")
+                }
+                else{
+                    $('<div id="leftblock"><div align="center"><h3>'+nome+'</h3></div>')
+                    .append('<div>'+response.prodotto[0].descrizione+'</div>')
+                    .append('<img id="bottadd" class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />')
+                    .append('<div id="addedfromscheda"></div></div>').appendTo("#popupP");  
+                    $('<div id="rightblock"><img src="'+img.attr("src")+'" width=95 height=380 /></div>').appendTo("#popupP");
+                }
+                $('.overlay').fadeIn('fast');
+                $('#popupP').show('slow');
+            });
+        }
         e.preventDefault();
     })
     
     $(document).on('click','#closepp',function(e){
+        
         $("#popupP").get(0).innerHTML = null;
         $('.overlay').fadeOut('fast');
         $('#popupP').hide();
@@ -229,7 +238,12 @@ $(document).ready(function(){
     
     $(document).on('click','.addtocart',function(e){
         dropEffect();
-        showMessage("Aggiunto!","#addedfromscheda")
+        if($(".popup").css("display") == "none"){
+            $(this).stop(true).css("display","none").delay(400).show('0');
+            $(this).prev().stop(true).css("display","block").show('0').delay(400).hide('0');   
+        }else{
+            showMessage("Aggiunto!","#addedfromscheda");
+        }
         ++TotalCounter;
         var t = $(this).prev().prev().find('h4').text();
         if(t == ''){
@@ -249,7 +263,7 @@ $(document).ready(function(){
         }
         showMessage("Elemento Aggiunto","#messagebox");
         (TotalCounter==1)?$("#elCounter").text("1 prodotto inserito"):$("#elCounter").text(TotalCounter+" prodotti inseriti");
-        return false;
+
     });
     
     $(".up").click(function(e){
@@ -266,6 +280,50 @@ $(document).ready(function(){
     })
    
 
-  
+    $(document).on('click','#saveProduct',function(e){
+        $.post("VProdotti.php",
+        {
+            'action': "updateProdotto",
+            'id': $("#titleinput").attr("name"),
+            'titolo': $("#titleinput").val(),
+            'descrizione': $("#prodDesc").val()
+        }).success(function(data){
+            var response  = jQuery.parseJSON(data);
+            if(response.result){
+                showMessage("Prodotto Aggiornato!","#saved");
+                setTimeout(function () {
+                    location.reload();
+                }, 500);
+            }
+            else
+                showMessage("Errore. Riprova","#saved");
+       
+        });
+        e.preventDefault();
 
-});
+    });
+
+
+    $(document).on('click','#addprodotto',function(e){
+        $('<div id="closepp"><a href="#">Chiudi</a></div>').appendTo("#popupP")
+        $('<div id="leftblock"><div align="center"><input id="titleinput" type="text" name="nome" value="Nome Prodotto" /></div>')
+        .append('<div><textarea id="prodDesc"  name="descrizione" value="" id="message" >Scrivi qui una descrizione...</textarea></div>')
+        .append('<div id="saved" align="center"></div>').appendTo("#popupP");
+        $('<div id="rightblock"><img id="thumb" src="images/botadd.png" width=50 height=200 />')
+        .appendTo("#popupP");
+        $('<form id="newHotnessForm" action="#" enctype="multipart/form-data">')
+        .append('<label id="lfile">Scegli un\'immagine:</label>')
+        .append('<input id="ifile" type="file" size="20" />')
+        .append('<div align="center"><a href="#" id="addProduct">Salva</a></div>').appendTo("#popupP")
+        $('.overlay').fadeIn('fast');
+        $('#popupP').show('slow');
+        e.preventDefault();
+    });
+    
+    $(document).on('click','#addProduct',function(e){
+        var title = $("#titleinput").val();
+        var desc = $("#prodDesc").val();
+        
+    });
+    
+})
