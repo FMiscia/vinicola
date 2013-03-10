@@ -7,6 +7,7 @@
 	chdir('./Controller');*/
 
 require_once 'FDb.php';
+require_once '../exception/dbException.php';
 require_once '../includes/config.inc.php';
 
 /**
