@@ -6,7 +6,8 @@ $(document).ready(function(){
     $('#sublink').show("slow");
     $('.sidelink').mouseover(function(){
         $(this).css("color","black")
-    }).mouseout(function(){
+    }
+    ).mouseout(function(){
         $(this).css("color","white")
     })
     
