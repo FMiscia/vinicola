@@ -63,7 +63,7 @@ h4 {
 
 img.left {
     float: left;
-    margin: 5px 20px 20px 0;
+    margin: 5px 90px 20px 0;
 }
 
 img.top {
@@ -139,7 +139,7 @@ ul h4 {
 
 #addProduct{
     display: block;
-    margin-top:30px;
+    margin-top:15px;
 }
 
 #boxP {
@@ -247,6 +247,14 @@ ul h4 {
 
 }
 
+#logged{
+    display: inline-table;
+    margin: 0px 0px 0px 10px; 
+    font-size: 30px; 
+    text-shadow: 0px 1px 0px #fff;
+    font-family: Tangerine, cursive;
+}
+
 #pNumber{
     position:relative;
     margin-bottom: -55px;
@@ -278,7 +286,7 @@ ul h4 {
 #box1 {
     width: 505px;
     overflow: hidden;
-    margin: 0 0 0px 0;
+    margin: 0 0 -9px 0;
 }
 
 #box2 {
@@ -344,6 +352,7 @@ ul h4 {
 
 #chisiamo{
     margin-left:100px;
+    padding-left: 60px;
 }
 
 #chisiamobot{
@@ -639,7 +648,7 @@ ul h4 {
     display: inline;
     float: right;
     margin-right: 50px;
-    margin-top: -40px;
+    margin-top: -30px;
 }
 
 
@@ -794,6 +803,18 @@ ul h4 {
     box-shadow:  inset 0px 0px 1px #b3a895;
 }
 
+#titinput{
+    font: 14px normal normal uppercase helvetica, arial, serif;
+    width:200px;
+    color: #7c7873;
+    border:1px solid rgba(5, 5, 5, 0.1);;
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+    border-radius: 5px;
+    -moz-box-shadow: inset 0px 0px 1px #726959;
+    -webkit-box-shadow:  inset 0px 0px 1px #b3a895; 
+    box-shadow:  inset 0px 0px 1px #b3a895;
+}
 .up {
     text-align: right;
     margin-top: -40px;
@@ -933,7 +954,7 @@ form {background: none;
     width: 80px; 
     height: 36px; 
     padding: 0px 0px; 
-    margin: 15px 0px 0px 143px;
+    margin: 14px 0px 0px 143px;
     border:1px solid rgba(5, 5, 5, 0.1);;
     -moz-border-radius: 5px; 
     -webkit-border-radius: 5px; 
@@ -955,7 +976,12 @@ textarea {
 textarea:focus, input[type=password]:focus, input[type=text]:focus  {background:rgba(255,255,255,.35);}
 
 #newHotnessForm{
-    float: left;
+    width:565px; 
+    height:375px; 
+    /*float: left;*/
+    color: #7c7873;
+    padding-left: 10px;
+    padding-top: 0px;
 }
 
 #lfile{
@@ -963,17 +989,27 @@ textarea:focus, input[type=password]:focus, input[type=text]:focus  {background:
     font-family: helvetica, serif;
     display: inline;
     font-size: 14px;
-    margin-left: 5px;
+    margin-left: 0px;
     margin-top: 7px;
 }
 
 #ifile{
     display: inline;
     margin-left: 20px;
-    
+
 }
 
 #bfile{
     display: block;
 
+}
+
+input[type=radio]{
+    display: inline-table;
+    margin-left: 5px;
+    color: #7c7873;
+}
+
+input[type=checkbox]{
+    display: inline;
 }

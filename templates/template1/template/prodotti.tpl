@@ -8,9 +8,10 @@
     <div id="resoconto">
     </div>
     <div id="sendPrev">
-        <div><h3>Inserisci un recapito:</h3></div>
-        <div><input type="text" name=""  value="telefono o mail..." size="30"/></div>
+        <div><h3>Inserisci un recapito email:</h3></div>
+        <div><input id="recapito" type="text" name=""  value="telefono o mail..." size="30"/></div>
         <div><a href="#" id="send">Invia il preventivo</a></div>
+        <div id="sendBox"></div>
     </div>
 </div>    
 <div id="PCcontainer">
@@ -30,14 +31,15 @@
                 </div>
             {/if}
         {/foreach}
+        <!--
         {if $admin}
             <div class="prodotto">
                 <div id="addprodotto" class="elencoshort"> 
-                    <img class="vini" src="images/botadd.png" alt="aggiungi" />
+                    <img class="vini" id="vetrina" src="images/botadd.png" alt="aggiungi" />
                     <h4>Aggiungi</h4>
                 </div>
             </div>
-        {/if}
+        {/if}!-->
         <a id="vino"><div id="title" align="center"><h2>Vino</h2></div></a>
         <div class="up"><h4><a href="#">Torna su</a></h4></div>
         {foreach from=$prodotti item=prodotto}
@@ -53,10 +55,10 @@
             {/if}
         {/foreach}
         {if $admin}
-            <div class="prodotto">
+            <div class="prodotto" >
                 <div id="addprodotto" class="elencoshort"> 
-                    <img class="vini" src="images/botadd.png" alt="aggiungi" />
-                    <h4>Aggiungi</h4>
+                    <img class="vini" id="vino" src="images/botadd.png" alt="aggiungi" />
+                    <h4 id="vino">Aggiungi</h4>
                 </div>
             </div>
         {/if}
@@ -77,8 +79,8 @@
         {if $admin}
             <div class="prodotto">
                 <div id="addprodotto" class="elencoshort"> 
-                    <img class="vini" src="images/botadd.png" alt="aggiungi" />
-                    <h4>Aggiungi</h4>
+                    <img class="vini" id="olio" src="images/botadd.png" alt="aggiungi" />
+                    <h4 id="olio">Aggiungi</h4>
                 </div>
             </div>
         {/if}

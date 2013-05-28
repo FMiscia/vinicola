@@ -7,9 +7,11 @@
                 <input type="text" name="name" value="" id="username" />
                 <label id="formlabel" for="password">Password: </label>
                 <input type="password" name="password" value="" id="password" />
-                <input type="submit" name ="submit" value="login" />
+                <input type="submit" id="submit" name ="submit" value="login" />
+                <div id="logged" align="center"></div>
             </form>
         </div>
+        
     </div>
 </div>
 

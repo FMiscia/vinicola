@@ -37,16 +37,6 @@ class CAdministration {
         return false;
     }
     
-    public function updateProdotto($id,$titolo,$desc){
-        $fprod = FProdotto::getInstance();
-        $prod = $fprod->load(utf8_decode(htmlspecialchars(mysql_real_escape_string($id))));
-        if(!$prod)
-            return false;
-        $prod->setNome(htmlspecialchars($titolo));
-        $prod->setDescrizione(htmlspecialchars($desc));
-        $fprod->update($prod);
-        return true;
-    }
 
     public static function getInstance() {
         if (CAdministration::$instance == null)

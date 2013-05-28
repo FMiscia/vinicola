@@ -13,7 +13,7 @@ require_once '../Foundation/Utility/USession.php';
 class VProdotti extends View {
 
     public $content = 'prodotti.tpl';
-    public $scripts = array('CProdotti.js', 'h5utils.js');
+    public $scripts = array('CProdotti.js', 'h5utils.js',"jquery.form.js");
 
     public function __construct($action) {
         $session = new USession();
@@ -31,9 +31,9 @@ class VProdotti extends View {
 
     public function getProdotto() {
         $out = array(
-                'prodotto' => null,
-                'admin' => false
-            );
+            'prodotto' => null,
+            'admin' => false
+        );
         if (isset($_GET['nome'])) {
             $nome = $_GET['nome'];
             $controller = CProdotto::getInstance();
@@ -49,9 +49,11 @@ class VProdotti extends View {
 
     public function addProdotto() {
         $out = array('result' => false);
-        if ($this->admin && isset($_GET['prodotto'])) {
+        if ($this->admin && isset($_POST['title']) && isset($_POST['desc']) && isset($_FILES["file"]) && isset($_POST['color'])
+                && isset($_POST['tipo']) ) {
             $controller = CProdotto::getInstance();
-            if ($controller->addProdotto($_GET['prodotto']))
+            if ($controller->addProdotto(utf8_decode($_POST['title']), utf8_decode($_POST['desc']), $_FILES["file"], $_POST['color'], 
+                    $_POST['tipo'],(isset($_POST['vetrina'])?true:false)))
                 $out = array('result' => true);
         }
         echo json_encode($out);
@@ -68,10 +70,21 @@ class VProdotti extends View {
 
     public function updateProdotto() {
         $out = array("result" => false);
-        if (($this->admin && isset($_POST['id']) && isset($_POST['titolo']) && isset($_POST['descrizione'])) &&
-                (CAdministration::getInstance()->updateProdotto($_POST['id'],$_POST['titolo'], $_POST['descrizione'])))
+        if (($this->admin && isset($_POST['id']) && ( isset($_FILES["file"]) || isset($_POST['titolo']) || isset($_POST['descrizione']))) &&
+                (CProdotto::getInstance()->updateProdotto($_POST['id'], utf8_decode($_POST['titolo']), utf8_decode($_POST['descrizione']), 
+                        isset($_FILES["file"])?$_FILES["file"]:null)))
             $out = array("result" => true);
 
+        echo json_encode($out);
+        exit;
+    }
+    
+    public function sendProdotti() {
+        $out = array("result" => false);
+        if(isset($_POST['prodotti']) && isset($_POST['recapito']) && CProdotto::getInstance()->sendProdotti($_POST['prodotti'],$_POST['recapito'])){
+            $out = array("result" => true);
+        }
+        
         echo json_encode($out);
         exit;
     }
@@ -80,8 +93,8 @@ class VProdotti extends View {
 
 $action = null;
 if (isset($_GET['action']))
-    $action = $_GET['action']; 
+    $action = $_GET['action'];
 if (isset($_POST['action']))
-    $action = $_POST['action']; 
+    $action = $_POST['action'];
 $vprodotti = new VProdotti($action);
 ?>

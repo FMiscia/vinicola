@@ -12,7 +12,7 @@ require_once '../Foundation/Utility/USession.php';
 class VLogin extends View {
 
     public $content = 'login.tpl';
-    public $scripts = array('CHome.js');
+    public $scripts = array('CHome.js','CLogin.js','jquery.form.js');
 
     public function __construct($action) {
         $session = new USession();
@@ -26,9 +26,13 @@ class VLogin extends View {
     }
 
     public function login() {
-        if (isset($_POST['name']) && isset($_POST["password"])) {
-            $this->admin = CAdministration::getInstance()->login($_POST['name'], $_POST['password']);
-        }      
+        $out = array('result' => false);
+        if (isset($_POST['name']) && isset($_POST["password"]) && 
+                $this->admin = CAdministration::getInstance()->login($_POST['name'], $_POST['password'])) {
+            $out = array('result' => true);
+        }  
+        echo json_encode($out);
+        exit;
     }
     
     public function logout(){
