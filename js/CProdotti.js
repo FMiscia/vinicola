@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
     quantity = new Object();
+    /*check whether an email has been set or not in the input box*/
+    set = false;
     var TotalCounter = 0;
 
     $('#sublink').show("slow");
@@ -364,7 +366,10 @@ $(document).ready(function() {
     });
 
     $(document).on('focus', '#recapito', function(e) {
-        $(this).val("");
+        if(!set){
+            $(this).val("");
+            set=true;
+        }
     });
 
     $(document).on('click', '#send', function(e) {
