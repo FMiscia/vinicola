@@ -76,13 +76,18 @@ class CProdotto {
         $p = $f->getProdottoByName(utf8_decode(htmlspecialchars(mysql_real_escape_string($name))));
         return $p;
     }
+
     //controlla $prodotti
     public function sendProdotti($prodotti, $recapito) {
         $msg = "Ciao! Hai ricevuto una richiesta di preventivo da: " . $recapito . "
                 \nSono stati richiesti i seguenti prodotti:\n";
         foreach ($prodotti as $chiave => $valore)
-            $msg.=$chiave.": ".$valore."\n";
-        $status = mail("checco5@tiscali.it", "Richiesta preventivo", $msg) ? true : false;
+            $msg.=$chiave . ": " . $valore . "\n";
+        $msg = wordwrap($msg, 70);
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
+        $headers.= "From: " . $recapito . "\r\n";
+        $status = mail("checco5@tiscali.it", "Richiesta preventivo", $msg,$headers) ? true : false;
         //$status = true;
         return $status;
     }
@@ -95,4 +100,5 @@ class CProdotto {
     }
 
 }
+
 ?>
