@@ -87,7 +87,7 @@ class CProdotto {
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
         $headers.= "From: " . $recapito . "\r\n";
-        $status = mail("checco5@tiscali.it", "Richiesta preventivo", $msg,$headers) ? true : false;
+        $status = mail("fra.miscia@gmail.com", "Richiesta preventivo", $msg,$headers) ? true : false;
         //$status = true;
         return $status;
     }

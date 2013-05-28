@@ -14,7 +14,7 @@ $(document).ready(function() {
     })
 
     $(function() {
-        dd();
+        //dd();
         $(window).scroll(reloadCarrello);
 
     });
@@ -57,6 +57,9 @@ $(document).ready(function() {
         if (e.preventDefault) {
             e.preventDefault();
         }
+        if (e.stopPropagation) {
+            e.stopPropagation();
+        }
         return false;
     }
 
@@ -77,12 +80,14 @@ $(document).ready(function() {
         addEvent(drag, 'dragstart', function(e) {
             e.dataTransfer.effectAllowed = 'move'; // only dropEffect='copy' will be dropable
             e.dataTransfer.setData('Text', $(this).attr("alt")); // required otherwise doesn't work
+            return true;
         });
         // Tells the browser that we *can* drop on this target
         addEvent(drop, 'dragover', function(e) {
             //$(e.target).css("background-color","white")
             e.target.className = "dragOver";
             //showMessage("Rilascia");
+            e.stopPropagation()
             e.preventDefault();
             return false;
         }, false);
@@ -93,6 +98,7 @@ $(document).ready(function() {
             //$(e.target).css("background-color","white")
             e.target.className = "dragOver";
             //showMessage("Rilascia");
+            e.stopPropagation()
             e.preventDefault();
             return false;
         }, false);
@@ -101,6 +107,7 @@ $(document).ready(function() {
 
         addEvent(drop, 'dragleave', function(e) {
             e.target.className = "";
+            e.stopPropagation()
             e.preventDefault();
             return false;
         }, false);
@@ -110,8 +117,6 @@ $(document).ready(function() {
         addEvent(drop, 'drop', function(e) {
             ++TotalCounter;
             e.target.className = "";
-            if (e.preventDefault)
-                e.preventDefault(); // stops the browser from redirecting off to the text.
             e.dataTransfer.dropEffect = 'move';
             var t = e.dataTransfer.getData('Text');
             if (!quantity.hasOwnProperty(t.toString())) {
@@ -128,6 +133,12 @@ $(document).ready(function() {
             }
             showMessage("Elemento Aggiunto", "#messagebox");
             (TotalCounter == 1) ? $("#elCounter").text("1 prodotto inserito") : $("#elCounter").text(TotalCounter + " prodotti inseriti");
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
             return false;
         });
 
@@ -366,9 +377,9 @@ $(document).ready(function() {
     });
 
     $(document).on('focus', '#recapito', function(e) {
-        if(!set){
+        if (!set) {
             $(this).val("");
-            set=true;
+            set = true;
         }
     });
 
@@ -389,7 +400,7 @@ $(document).ready(function() {
                     }).success(function(data) {
                 var response = jQuery.parseJSON(data);
                 if (response.result) {
-                    showMessage('Richiesta inviata!',"#sendBox");
+                    showMessage('Richiesta inviata!', "#sendBox");
                 } else {
                     showMessage("Errore", "#sendBox");
                 }
