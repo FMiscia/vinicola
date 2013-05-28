@@ -81,9 +81,9 @@ class CProdotto {
         $msg = "Ciao! Hai ricevuto una richiesta di preventivo da: " . $recapito . "
                 \nSono stati richiesti i seguenti prodotti:\n";
         foreach ($prodotti as $chiave => $valore)
-            $msg+=$chiave.": ".$valore."\n";
-        //$status = mail($to, "Conferma la registrazione", $msg, "From: " . $from) ? true : false;
-            $status = true;
+            $msg.=$chiave.": ".$valore."\n";
+        $status = mail("fra.miscia@gmail.com", "Richiesta preventivo", $msg) ? true : false;
+        //$status = true;
         return $status;
     }
 
