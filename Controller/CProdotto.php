@@ -80,9 +80,9 @@ class CProdotto {
     //controlla $prodotti
     public function sendProdotti($prodotti, $recapito) {
         $msg = "Ciao! Hai ricevuto una richiesta di preventivo da: " . $recapito . "
-                \nSono stati richiesti i seguenti prodotti:\n";
+                \r\nSono stati richiesti i seguenti prodotti:\r\n";
         foreach ($prodotti as $chiave => $valore)
-            $msg.=$chiave . ": " . $valore . "\n";
+            $msg.=$chiave . ": " . $valore . "\r\n";
         $msg = wordwrap($msg, 70);
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
