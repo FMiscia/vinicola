@@ -70,7 +70,18 @@ $(document).ready(function() {
         }, 1000);
 
     }
+    
+    $("#imgC").mouseover(function(e){
+        $("#imgC").addClass("dragOver");
+    });
 
+    $("#imgC").mouseleave(function(e){
+       $("#imgC").removeClass("dragOver"); 
+    });
+    
+    $("#imgC").click(function(){
+        check();
+    })
 
     function dd() {
 
@@ -144,7 +155,7 @@ $(document).ready(function() {
 
     }
 
-    $("#check").click(function(e) {
+    function check() {
         var right = ($(window).width() - ($("#banner").offset().left + $("#banner").outerWidth()));
         var top = $("#banner").offset().top
         $("#popupScontrino").css("right", right);
@@ -156,7 +167,8 @@ $(document).ready(function() {
             showMessage("Nessun prodotto nel carrello...", "#chartEmpty")
         }
         e.preventDefault();
-    })
+    }
+    
     $('#closepp').click(function(e) {
         updateCounter();
         $('.overlay').fadeOut('fast');
@@ -225,7 +237,7 @@ $(document).ready(function() {
                     $('<div id="closepp"><a href="#">Chiudi</a></div>').appendTo("#popupP")
                     $('<div id="rightblock"><img src="' + img.attr("src") + '" width=95 height=380 /></div>').appendTo("#popupP");
                     $('<div id="leftblock"><div align="center"><h3>' + nome + '</h3></div>')
-                            .append('<div>' + response.prodotto[0].descrizione + '</div>')
+                            .append('<div id="ProductDescription">' + response.prodotto[0].descrizione + '</div>')
                             .append('<img id="bottadd" class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />')
                             .append('<div id="addedfromscheda"></div></div>').appendTo("#popupP");
 
@@ -254,6 +266,7 @@ $(document).ready(function() {
 
 
     $(document).on('click', '.addtocart', function(e) {
+        e.preventDefault();
         dropEffect();
         if ($(".popup").css("display") == "none") {
             $(this).stop(true).css("display", "none").delay(400).show('0');
@@ -280,7 +293,7 @@ $(document).ready(function() {
         }
         showMessage("Elemento Aggiunto", "#messagebox");
         (TotalCounter == 1) ? $("#elCounter").text("1 prodotto inserito") : $("#elCounter").text(TotalCounter + " prodotti inseriti");
-
+        return true;
     });
 
     $(".up").click(function(e) {

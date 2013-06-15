@@ -189,7 +189,8 @@ ul h4 {
     padding-top:10px;
     padding-left:10px;
     padding-right: 10px;
-    padding-bottom:100px;
+    padding-bottom:10px;
+    margin-bottom: 10px;
     background: #FFF;
     color: #5C5C5C;
 
@@ -235,6 +236,7 @@ ul h4 {
     background: url(images/carrello.gif) no-repeat;
     background-size: 120px 100px;
     -webkit-transition: all 0.2s ease-in-out;
+    cursor: pointer;
 
 }
 
@@ -284,7 +286,7 @@ ul h4 {
 
 
 #box1 {
-    width: 505px;
+    width: 600px;/*505*/
     overflow: hidden;
     margin: 0 0 -9px 0;
 }
@@ -327,7 +329,7 @@ ul h4 {
     padding-top:55px;
     padding-left:55px;
     padding-right: 55px;
-    padding-bottom:50px;
+    padding-bottom:57px;
     background: #FFF;
     color: #5C5C5C;
 }
@@ -342,7 +344,7 @@ ul h4 {
 
 #copyright {
     margin: 0 0 20px 0;
-    padding: 60px 0 0px 0;
+    padding: 0px 0 0px 0;
     text-align: center;
 }
 
@@ -395,6 +397,10 @@ ul h4 {
     width: 80px;
     height: 200px;
     display: inline-table;  
+}
+
+#ProductDescription{
+    color: #5C5C5C;
 }
 
 #addprodotto{
@@ -503,7 +509,7 @@ ul h4 {
     position: relative;
     padding: 0;
     width: 980px;
-    margin: 25px 0 30px 0;
+    margin: 25px 0 15px 0;
 }
 
 #main .sectionList {
@@ -531,7 +537,7 @@ ul h4 {
 }
 
 #mexResoconto{
-    color: #141414;
+    color: #5C5C5C;
     margin-left: 25px;
     margin-right: 25px;
     margin-bottom: 25px;
@@ -675,22 +681,26 @@ ul h4 {
 
 #send{
     margin-left: 10px;
+    height: 30px;
+    cursor: pointer;
 }
 
 #sendPrev {
     position: absolute;
     margin-top: 100px; 
     margin-left: 120px;
-    color: black;
+    color: #5C5C5C;
 }
 
 #sendPrev div {
     display: inline;
+    float: left;
     margin-left: 15px
 }
 
 #sendPrev input{
     width: 180px;
+    height: 20px;
     margin-left:15px;
 }
 
@@ -896,6 +906,20 @@ form div  { margin: 0 0 5px 0; }
 .res{
     display: inline-table;
     width: 290px;
+}
+
+.res label{
+    color: #5C5C5C;
+    font-family: Tangerine;
+    font-size: 28px;
+    width:125px;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;       
+}
+
+#resoconto{
+    margin-left: 0px;
 }
 
 /*******/
