@@ -616,7 +616,7 @@ ul h4 {
     /*top: 140px;
     left: 504px;*/
     width: 900px; 
-    min-height:500px; 
+    min-height:575px; 
     max-height: 575px;
     background-color:#FFF; 
     display:none; 
@@ -687,7 +687,7 @@ ul h4 {
 
 #sendPrev {
     position: absolute;
-    margin-top: 100px; 
+    margin-top: 70px; 
     margin-left: 120px;
     color: #5C5C5C;
 }
