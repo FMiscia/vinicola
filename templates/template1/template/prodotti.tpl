@@ -23,11 +23,11 @@
             {if $prodotto->getVetrina()}
                 <div class="prodotto">
                     <div class="elencoshort"><a id="linkbot" href="#">       
-                            <img class="vini" src="images/{$prodotto->getImmagine()}.png" alt="{$prodotto->getNome()}" />
+                            <img class="vini" src="images/{$prodotto->getImmagine()}.png"  />
                             <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto!</div>
-                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />
+                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" alt="Aggiungi" />
                 </div>
             {/if}
         {/foreach}
@@ -46,11 +46,11 @@
                         {if $prodotto->getTipo() == "vino"}
                 <div class="prodotto">
                     <div class="elencoshort"><a id="linkbot" href="#">         
-                            <img class="vini" src="images/{$prodotto->getImmagine()}.png" alt="{$prodotto->getNome()}" />
+                            <img class="vini" src="images/{$prodotto->getImmagine()}.png"  />
                             <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto</div>
-                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />
+                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" alt="Aggiungi" />
                 </div>
             {/if}
         {/foreach}
@@ -68,11 +68,11 @@
                         {if $prodotto->getTipo() == "olio"}
                 <div class="prodotto">
                     <div class="elencoshort"><a id="linkbot" href="#">    
-                            <img class="vini" src="images/{$prodotto->getImmagine()}.png" alt="{$prodotto->getNome()}" />
+                            <img class="vini" src="images/{$prodotto->getImmagine()}.png"  />
                             <h4 align="center">{$prodotto->getNome()}</h4></a>
                     </div>
                     <div class="added">Aggiunto</div>
-                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" />
+                    <img class="addtocart" draggable="false" src="images/addc.png" widht="70" height="23" alt="Aggiungi" />
                 </div>
             {/if}
         {/foreach}
@@ -93,11 +93,11 @@
             <h2 style="color: #141414">Carrello</h2>
         </div>
         <div id="messagebox"></div>
-        <div id="imgC" draggable="false"></div> 
+        <div id="imgC" draggable="false" ></div> 
         <div id="elCounter"></div> 
         <div id="chartEmpty"></div>
-        <p>Inserisci i prodotti che desideri all'interno del carrello. Quando hai terminato clicca l'immagine
-            per controllare le ultime cose e richiedere il preventivo</p>
+        <p>Inserisci i prodotti che desideri all'interno del carrello. Quando hai terminato clicca l'immagine 
+           o il titolo per controllare le ultime cose e richiedere il preventivo</p>
         <!--<a id="check" href="#">Controlla & Invia</a>-->
     </div>
 </div>

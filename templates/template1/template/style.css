@@ -49,7 +49,7 @@ h2 {
 
 h2,h3,h4 {
     margin-bottom: 1em;
-    font-family: Tangerine, cursive;
+    font-family: Tangerine;
     color: #FFF;
 }
 
@@ -254,7 +254,7 @@ ul h4 {
     margin: 0px 0px 0px 10px; 
     font-size: 30px; 
     text-shadow: 0px 1px 0px #fff;
-    font-family: Tangerine, cursive;
+    font-family: Tangerine;
 }
 
 #pNumber{
@@ -502,7 +502,7 @@ ul h4 {
 
 #logo h1 {
     font-size: 4em;
-    font-family: Tangerine, cursive;
+    font-family: Tangerine;
 }
 
 #main {
@@ -550,7 +550,7 @@ ul h4 {
     width: 980px;
     height: 62px;
     line-height: 62px;
-    font-family: Tangerine, cursive;
+    font-family: Tangerine;
 }
 
 #nav a {
@@ -671,7 +671,7 @@ ul h4 {
     color: #FFF;
     background: #3A9DE4;
     padding: 5px;
-    font-family: Tangerine, cursive;
+    font-family: Tangerine;
 }
 
 #search input.text {
@@ -785,7 +785,7 @@ ul h4 {
 #titolo h1{
     position: absolute;
     color: #141414;
-    font-family: Tangerine, cursive;
+    font-family: Tangerine;
     font-size: 70px;
     top:130px;
     left:90px;
@@ -794,7 +794,7 @@ ul h4 {
 #titolo h2{
     position: absolute;
     color: #141414;
-    font-family: Tangerine, cursive;
+    font-family: Tangerine;
     font-size: 50px;
     top:60px;
     left:30px;

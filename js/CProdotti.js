@@ -70,18 +70,31 @@ $(document).ready(function() {
         }, 1000);
 
     }
-    
-    $("#imgC").mouseover(function(e){
+
+    $("#imgC").mouseover(function(e) {
         $("#imgC").addClass("dragOver");
     });
 
-    $("#imgC").mouseleave(function(e){
-       $("#imgC").removeClass("dragOver"); 
+    $("#imgC").mouseleave(function(e) {
+        $("#imgC").removeClass("dragOver");
     });
-    
-    $("#imgC").click(function(){
+
+    $("#imgC").click(function() {
         check();
     })
+
+    $("#tcarrello").mouseover(function(e) {
+        $(this).css("cursor", "pointer")
+    })
+
+    $("#tcarrello").mouseleave(function(e) {
+        $(this).css("cursor", "pointer")
+    })
+
+    $("#tcarrello").click(function() {
+        check();
+    })
+
 
     function dd() {
 
@@ -168,7 +181,7 @@ $(document).ready(function() {
         }
         e.preventDefault();
     }
-    
+
     $('#closepp').click(function(e) {
         updateCounter();
         $('.overlay').fadeOut('fast');
