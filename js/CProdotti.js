@@ -53,7 +53,7 @@ $(document).ready(function() {
             $('#boxC').removeClass('top');
     }
 
-    function cancel(e) {
+    /*function cancel(e) {
         if (e.preventDefault) {
             e.preventDefault();
         }
@@ -69,7 +69,7 @@ $(document).ready(function() {
             cart.removeClass('dragOver');
         }, 1000);
 
-    }
+    }*/
 
     $("#imgC").mouseover(function(e) {
         $("#imgC").addClass("dragOver");
@@ -96,7 +96,7 @@ $(document).ready(function() {
     })
 
 
-    function dd() {
+    /*function dd() {
 
         var drop = document.querySelector('#imgC');
         var drag = document.querySelectorAll('.vini');
@@ -166,7 +166,7 @@ $(document).ready(function() {
             return false;
         });
 
-    }
+    }*/
 
     function check() {
         var right = ($(window).width() - ($("#banner").offset().left + $("#banner").outerWidth()));
@@ -280,7 +280,7 @@ $(document).ready(function() {
 
     $(document).on('click', '.addtocart', function(e) {
         e.preventDefault();
-        dropEffect();
+        //dropEffect();
         if ($(".popup").css("display") == "none") {
             $(this).stop(true).css("display", "none").delay(400).show('0');
             $(this).prev().stop(true).css("display", "block").show('0').delay(400).hide('0');
