@@ -1,8 +1,9 @@
 $(document).ready(function() {
 
     quantity = new Object();
-    /*check whether an email has been set or not in the input box*/
-    set = false;
+    /*check whether an email and the bill have been set or not in the input box*/
+    var set = false;
+    var sent = false;
     var TotalCounter = 0;
 
     $('#sublink').show("slow");
@@ -16,7 +17,6 @@ $(document).ready(function() {
     $(function() {
         //dd();
         $(window).scroll(reloadCarrello);
-
     });
 
     $(document).on("click", ".button", function(e) {
@@ -54,22 +54,22 @@ $(document).ready(function() {
     }
 
     /*function cancel(e) {
-        if (e.preventDefault) {
-            e.preventDefault();
-        }
-        if (e.stopPropagation) {
-            e.stopPropagation();
-        }
-        return false;
-    }
-
-    function dropEffect() {
-        var cart = $("#imgC").addClass('dragOver');
-        setTimeout(function() {
-            cart.removeClass('dragOver');
-        }, 1000);
-
-    }*/
+     if (e.preventDefault) {
+     e.preventDefault();
+     }
+     if (e.stopPropagation) {
+     e.stopPropagation();
+     }
+     return false;
+     }
+     
+     function dropEffect() {
+     var cart = $("#imgC").addClass('dragOver');
+     setTimeout(function() {
+     cart.removeClass('dragOver');
+     }, 1000);
+     
+     }*/
 
     $("#imgC").mouseover(function(e) {
         $("#imgC").addClass("dragOver");
@@ -97,76 +97,76 @@ $(document).ready(function() {
 
 
     /*function dd() {
-
-        var drop = document.querySelector('#imgC');
-        var drag = document.querySelectorAll('.vini');
-
-        addEvent(drag, 'dragstart', function(e) {
-            e.dataTransfer.effectAllowed = 'move'; // only dropEffect='copy' will be dropable
-            e.dataTransfer.setData('Text', $(this).attr("alt")); // required otherwise doesn't work
-            return true;
-        });
-        // Tells the browser that we *can* drop on this target
-        addEvent(drop, 'dragover', function(e) {
-            //$(e.target).css("background-color","white")
-            e.target.className = "dragOver";
-            //showMessage("Rilascia");
-            e.stopPropagation()
-            e.preventDefault();
-            return false;
-        }, false);
-
-        //addEvent(drop, 'dragover',cancel)
-
-        addEvent(drop, 'dragenter', function(e) {
-            //$(e.target).css("background-color","white")
-            e.target.className = "dragOver";
-            //showMessage("Rilascia");
-            e.stopPropagation()
-            e.preventDefault();
-            return false;
-        }, false);
-
-        //addEvent(drop, 'dragenter',cancel);
-
-        addEvent(drop, 'dragleave', function(e) {
-            e.target.className = "";
-            e.stopPropagation()
-            e.preventDefault();
-            return false;
-        }, false);
-
-
-
-        addEvent(drop, 'drop', function(e) {
-            ++TotalCounter;
-            e.target.className = "";
-            e.dataTransfer.dropEffect = 'move';
-            var t = e.dataTransfer.getData('Text');
-            if (!quantity.hasOwnProperty(t.toString())) {
-                quantity[(t.toString())] = 1;
-                $('<div class="res" align="center">')
-                        .append('<label for="name">' + t + '</label>')
-                        .append('<input type="text" name = "' + t + '" id="' + t.replace(/ /g, "") + '" value="' + quantity[(t.toString())] + '"/>')
-                        .append('<div class="button inc">+</div><div class="button dec">-</div></div>')
-                        .appendTo("#resoconto");
-            } else {
-                var valore = ++quantity[(t.toString())];
-                $("#" + t.replace(/ /g, "")).attr("value", valore);
-
-            }
-            showMessage("Elemento Aggiunto", "#messagebox");
-            (TotalCounter == 1) ? $("#elCounter").text("1 prodotto inserito") : $("#elCounter").text(TotalCounter + " prodotti inseriti");
-            if (e.preventDefault) {
-                e.preventDefault();
-            }
-            if (e.stopPropagation) {
-                e.stopPropagation();
-            }
-            return false;
-        });
-
-    }*/
+     
+     var drop = document.querySelector('#imgC');
+     var drag = document.querySelectorAll('.vini');
+     
+     addEvent(drag, 'dragstart', function(e) {
+     e.dataTransfer.effectAllowed = 'move'; // only dropEffect='copy' will be dropable
+     e.dataTransfer.setData('Text', $(this).attr("alt")); // required otherwise doesn't work
+     return true;
+     });
+     // Tells the browser that we *can* drop on this target
+     addEvent(drop, 'dragover', function(e) {
+     //$(e.target).css("background-color","white")
+     e.target.className = "dragOver";
+     //showMessage("Rilascia");
+     e.stopPropagation()
+     e.preventDefault();
+     return false;
+     }, false);
+     
+     //addEvent(drop, 'dragover',cancel)
+     
+     addEvent(drop, 'dragenter', function(e) {
+     //$(e.target).css("background-color","white")
+     e.target.className = "dragOver";
+     //showMessage("Rilascia");
+     e.stopPropagation()
+     e.preventDefault();
+     return false;
+     }, false);
+     
+     //addEvent(drop, 'dragenter',cancel);
+     
+     addEvent(drop, 'dragleave', function(e) {
+     e.target.className = "";
+     e.stopPropagation()
+     e.preventDefault();
+     return false;
+     }, false);
+     
+     
+     
+     addEvent(drop, 'drop', function(e) {
+     ++TotalCounter;
+     e.target.className = "";
+     e.dataTransfer.dropEffect = 'move';
+     var t = e.dataTransfer.getData('Text');
+     if (!quantity.hasOwnProperty(t.toString())) {
+     quantity[(t.toString())] = 1;
+     $('<div class="res" align="center">')
+     .append('<label for="name">' + t + '</label>')
+     .append('<input type="text" name = "' + t + '" id="' + t.replace(/ /g, "") + '" value="' + quantity[(t.toString())] + '"/>')
+     .append('<div class="button inc">+</div><div class="button dec">-</div></div>')
+     .appendTo("#resoconto");
+     } else {
+     var valore = ++quantity[(t.toString())];
+     $("#" + t.replace(/ /g, "")).attr("value", valore);
+     
+     }
+     showMessage("Elemento Aggiunto", "#messagebox");
+     (TotalCounter == 1) ? $("#elCounter").text("1 prodotto inserito") : $("#elCounter").text(TotalCounter + " prodotti inseriti");
+     if (e.preventDefault) {
+     e.preventDefault();
+     }
+     if (e.stopPropagation) {
+     e.stopPropagation();
+     }
+     return false;
+     });
+     
+     }*/
 
     function check() {
         var right = ($(window).width() - ($("#banner").offset().left + $("#banner").outerWidth()));
@@ -179,7 +179,6 @@ $(document).ready(function() {
         } else {
             showMessage("Nessun prodotto nel carrello...", "#chartEmpty")
         }
-        e.preventDefault();
     }
 
     $('#closepp').click(function(e) {
@@ -427,6 +426,14 @@ $(document).ready(function() {
                 var response = jQuery.parseJSON(data);
                 if (response.result) {
                     showMessage('Richiesta inviata!', "#sendBox");
+                    $("#elCounter").text("Richiesta inviata!");
+                    quantity = new Object();
+                    TotalCounter = 0;
+                    setTimeout(function() {
+                        $('.overlay').fadeOut('fast');
+                        $('#popupScontrino').hide();
+                        $("#resoconto").text("");
+                    }, 2000);
                 } else {
                     showMessage("Errore", "#sendBox");
                 }
